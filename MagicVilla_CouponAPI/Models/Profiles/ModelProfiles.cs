@@ -8,11 +8,11 @@ namespace MagicVilla_CouponAPI.Models.Profiles
     {
         public ModelProfiles()
         {
-            CreateMap<Coupon, CouponVM>()
+            CreateMap<Coupon, CouponReadVM>()
                 .ReverseMap();
-            CreateMap<Coupon, CreateCouponVM>()
+            CreateMap<Coupon, CouponCreateVM>()
                 .ReverseMap();
-            CreateMap<Coupon, UpdateCouponVM>()
+            CreateMap<Coupon, CouponUpdateVM>()
                 .ReverseMap();
         }
     }

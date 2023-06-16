@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "C/X/t4h1JaLX2ehb+q9P2fy6uI05bw1QCRPnFwSS5F2wHGAlyX7nMKsttcIFdf9Rcx4vD/OxP9Le6z0wN2u8iQ==",
+  "dgSpecHash": "XM8G9ZxYm15Z8cThzeFsPr4ZHpDZCTfvCu4bw/iDSEniHJuFdD6mkdBRB8ebLXyeKQ/bSHr+QhAR8ZgpuFXi4w==",
   "success": true,
   "projectFilePath": "C:\\Users\\SphesihleJ\\source\\repos\\MagicVilla\\MagicVilla_CouponAPI\\MagicVilla_CouponAPI.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,9 @@
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\SphesihleJ\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
+    "C:\\Users\\SphesihleJ\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\SphesihleJ\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.2\\fluentvalidation.dependencyinjectionextensions.11.5.2.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

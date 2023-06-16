@@ -1,6 +1,6 @@
 ﻿namespace MagicVilla_CouponAPI.Models.ViewModels
 {
-    public class CouponVM
+    public class CouponReadVM
     {
         public int Id { get; set; }
         public string Name { get; set; }

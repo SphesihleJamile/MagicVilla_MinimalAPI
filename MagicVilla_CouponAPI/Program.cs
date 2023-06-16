@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using MagicVilla_CouponAPI.Models.Profiles;
 using AutoMapper;
 using MagicVilla_CouponAPI.Models.ViewModels;
+using FluentValidation;
+using System.ComponentModel.DataAnnotations;
+using FluentValidation.Results;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +19,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+
 builder.Services.AddAutoMapper(typeof(ModelProfiles));
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 var app = builder.Build();
 
@@ -27,60 +32,75 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/api/Coupon/GetAll", (ILogger<Program> _logger, IMapper mapper) =>
+app.MapGet("/api/Coupon/GetAll", async (ILogger<Program> _logger, IMapper mapper) =>
 {
     _logger.LogInformation("Getting All Coupons");
-    var data = DataStore.GetAsync(mapper).Result?.ToList();
+    var data = (await DataStore.GetAsync(mapper))?.ToList();
     if (data == null || !data.Any())
         return Results.NoContent();
     return Results.Ok(data);
 }).WithName("GetCoupons")
-  .Produces<IEnumerable<CouponVM>>(200)
+  .Produces<IEnumerable<CouponReadVM>>(200)
   .Produces(204);
 
-app.MapGet("/api/Coupon/Get/{id:int}", (int id, IMapper mapper) =>
+app.MapGet("/api/Coupon/Get/{id:int}", async (int id, IMapper mapper) =>
 {
-    var data = DataStore.GetAsync(mapper).Result.FirstOrDefault(x => x.Id == id);
+    var data = (await DataStore.GetAsync(mapper))?.FirstOrDefault(x => x.Id == id);
     if(data == null)
         return Results.NotFound();
     return Results.Ok(data);
-}).WithName("GetCoupon")
-  .Produces<CouponVM>(200)
-  .Produces(404);
+})
+    .WithName("GetCoupon")
+    .Produces<CouponReadVM>(200)
+    .Produces(404);
 
-app.MapPost("/api/Coupon/Create", ([FromBody] CreateCouponVM coupon, IMapper mapper) =>
+app.MapPost("/api/Coupon/Create", async (
+    [FromBody] CouponCreateVM coupon, 
+    IValidator<CouponCreateVM> _validator,
+    IMapper mapper) =>
 {
-    if(string.IsNullOrEmpty(coupon.Name) || coupon.Percent == 0)
+
+    var validationResult = await _validator.ValidateAsync(coupon);
+
+    if (validationResult.IsValid)
     {
-        return Results.BadRequest("Invalid Coupon Name or Percent");
+        try
+        {
+            await DataStore.CreateAsync(mapper, coupon);
+            return Results.Ok(coupon);
+        }
+        catch (Exception ex)
+        {
+            return Results.BadRequest(ex.Message);
+        }
+    }
+    else
+    {
+        return Results.BadRequest(validationResult.Errors);
     }
 
-    try
-    {
-        DataStore.CreateAsync(mapper, coupon).Wait();
-        return Results.Ok(coupon);
-    }catch(Exception ex)
-    {
-        return Results.BadRequest(ex.Message);
-    }
-}).WithName("CreateCoupon")
-  .Accepts<CreateCouponVM>("application/json")
-  .Produces<CouponVM>(201)
-  .Produces(400);
+    
+})
+    .WithName("CreateCoupon")
+    .Accepts<CouponCreateVM>("application/json")
+    .Produces<CouponReadVM>(201)
+    .Produces<ValidationFailure>(400);
 
 app.MapPut("/api/Coupon/Update", () =>
 {
 
-}).WithName("UpdateCoupon")
-  .Produces<CouponVM>(200)
-  .Produces(404);
+})
+    .WithName("UpdateCoupon")
+    .Produces<CouponReadVM>(200)
+    .Produces(404);
 
 app.MapDelete("/api/Coupon/Delete/{id:int}", (int id) =>
 {
 
-}).WithName("DeleteCoupon")
-  .Produces<CouponVM>(200)
-  .Produces(404);
+})
+    .WithName("DeleteCoupon")
+    .Produces<CouponReadVM>(200)
+    .Produces(404);
 
 app.UseHttpsRedirection();
 

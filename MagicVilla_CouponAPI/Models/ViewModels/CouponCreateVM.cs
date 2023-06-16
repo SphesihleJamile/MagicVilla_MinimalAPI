@@ -1,6 +1,6 @@
 ﻿namespace MagicVilla_CouponAPI.Models.ViewModels
 {
-    public class UpdateCouponVM
+    public class CouponCreateVM
     {
         public string Name { get; set; }
         public int Percent { get; set; }

@@ -7,7 +7,7 @@ namespace MagicVilla_CouponAPI.Repositories
 {
     public static class DataStore
     {
-        public static async Task<IEnumerable<CouponVM>?> GetAsync(IMapper mapper)
+        public static async Task<IEnumerable<CouponReadVM>?> GetAsync(IMapper mapper)
         {
             ApplicationDbContext dbContext = new ApplicationDbContext();
 
@@ -17,12 +17,12 @@ namespace MagicVilla_CouponAPI.Repositories
             if (model == null || !model.Any())
                 return null;
 
-            var data = mapper.Map<List<CouponVM>>(model);
+            var data = mapper.Map<List<CouponReadVM>>(model);
 
             return data.ToList();
         }
 
-        public static async Task CreateAsync(IMapper mapper, CreateCouponVM createCoupon)
+        public static async Task CreateAsync(IMapper mapper, CouponCreateVM createCoupon)
         {
             ApplicationDbContext dbContext = new ApplicationDbContext();
 
