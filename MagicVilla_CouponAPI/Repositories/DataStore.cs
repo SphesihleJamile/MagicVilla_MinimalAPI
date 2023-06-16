@@ -37,5 +37,25 @@ namespace MagicVilla_CouponAPI.Repositories
                 throw new Exception(ex.Message);
             }
         }
+
+        public static async Task<bool> UpdateAsync(int id, CouponUpdateVM updateCoupon)
+        {
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+            try
+            {
+                var coupon = await dbContext.Coupons.Where(x => x.Id == id).FirstOrDefaultAsync();
+                if (coupon == null)
+                    return false;
+                coupon.Name = updateCoupon.Name;
+                coupon.LastUpdated = DateTime.Now;
+                coupon.Percent = updateCoupon.Percent;
+                coupon.IsActive = updateCoupon.IsActive;
+                await dbContext.SaveChangesAsync();
+                return true;
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
