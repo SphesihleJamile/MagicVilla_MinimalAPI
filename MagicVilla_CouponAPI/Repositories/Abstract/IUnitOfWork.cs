@@ -3,6 +3,6 @@
     public interface IUnitOfWork
     {
         public ICouponRepository CouponRepository { get; }
-        Task saveChangesAsync();
+        Task SaveChangesAsync();
     }
 }

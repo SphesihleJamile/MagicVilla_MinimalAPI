@@ -9,5 +9,6 @@ namespace MagicVilla_CouponAPI.Repositories.Abstract
         Task<CouponReadVM?> GetAsync(int id);
         Task CreateAsync(CouponCreateVM createCoupon);
         Task<bool> UpdateAsync(int id, CouponUpdateVM updateCoupon);
+        Task<bool> DeleteAsync(int id);
     }
 }

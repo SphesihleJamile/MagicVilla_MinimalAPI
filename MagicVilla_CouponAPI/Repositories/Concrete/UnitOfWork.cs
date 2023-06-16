@@ -15,7 +15,7 @@ namespace MagicVilla_CouponAPI.Repositories.Concrete
             this._dbContext = dbContext;
         }
 
-        public async Task saveChangesAsync()
+        public async Task SaveChangesAsync()
         {
             await _dbContext.SaveChangesAsync();
         }

@@ -58,7 +58,6 @@ namespace MagicVilla_CouponAPI.Repositories.Concrete
             {
                 var coupon = _mapper.Map<Coupon>(createCoupon);
                 await _dbContext.Coupons.AddAsync(coupon);
-                await _dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
             {
@@ -70,17 +69,33 @@ namespace MagicVilla_CouponAPI.Repositories.Concrete
         {
             try
             {
-                var coupon = await _dbContext.Coupons.Where(x => x.Id == id).FirstOrDefaultAsync();
+                var coupon = await GetAsync(id);
                 if (coupon == null)
                     return false;
                 coupon.Name = updateCoupon.Name;
                 coupon.LastUpdated = DateTime.Now;
                 coupon.Percent = updateCoupon.Percent;
                 coupon.IsActive = updateCoupon.IsActive;
-                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            try
+            {
+                var coupon = await _dbContext.Coupons
+                            .Where(x => x.Id == id)
+                            .FirstOrDefaultAsync();
+                if (coupon == null)
+                    return false;
+                _dbContext.Coupons.Remove(coupon);
+                return true;
+            }catch(Exception ex)
             {
                 throw new Exception(ex.Message);
             }
