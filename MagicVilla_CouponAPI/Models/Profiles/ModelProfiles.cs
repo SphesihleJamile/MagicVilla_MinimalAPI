@@ -14,6 +14,10 @@ namespace MagicVilla_CouponAPI.Models.Profiles
                 .ReverseMap();
             CreateMap<Coupon, CouponUpdateVM>()
                 .ReverseMap();
+            CreateMap<LocalUser, UsersVM>()
+                .ReverseMap();
+            CreateMap<LocalUser, RegistrationRequestVM>()
+                .ReverseMap();
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XM8G9ZxYm15Z8cThzeFsPr4ZHpDZCTfvCu4bw/iDSEniHJuFdD6mkdBRB8ebLXyeKQ/bSHr+QhAR8ZgpuFXi4w==",
+  "dgSpecHash": "iLgMgMqENGHbkpV/oDnQ0UxGaxYS/Eb5IT3+g5kkkyMi88y2MAAmvgx5lU3uVQ4+i/pLVJpQO/85/ArqHIcRlw==",
   "success": true,
   "projectFilePath": "C:\\Users\\SphesihleJ\\source\\repos\\MagicVilla\\MagicVilla_CouponAPI\\MagicVilla_CouponAPI.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.2\\fluentvalidation.dependencyinjectionextensions.11.5.2.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\SphesihleJ\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.18\\microsoft.aspnetcore.authentication.jwtbearer.6.0.18.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\SphesihleJ\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",

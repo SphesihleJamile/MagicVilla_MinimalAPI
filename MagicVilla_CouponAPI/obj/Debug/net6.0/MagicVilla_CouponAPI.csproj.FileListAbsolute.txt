@@ -90,3 +90,4 @@ C:\Users\SphesihleJ\source\repos\MagicVilla\MagicVilla_CouponAPI\bin\Debug\net6.
 C:\Users\SphesihleJ\source\repos\MagicVilla\MagicVilla_CouponAPI\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\SphesihleJ\source\repos\MagicVilla\MagicVilla_CouponAPI\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\SphesihleJ\source\repos\MagicVilla\MagicVilla_CouponAPI\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\SphesihleJ\source\repos\MagicVilla\MagicVilla_CouponAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

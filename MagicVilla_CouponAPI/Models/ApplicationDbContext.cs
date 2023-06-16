@@ -10,18 +10,8 @@ namespace MagicVilla_CouponAPI.Models
 
         }
 
-        public ApplicationDbContext()
-        {
-
-        }
-
         public DbSet<Coupon> Coupons { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("server=ULINN-DELL\\SQLEXPRESS01;Database=MinimalApi1_MagicVillaVouponProj;Trusted_Connection=True;TrustServerCertificate=True");
-        }
+        public DbSet<LocalUser> LocalUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
